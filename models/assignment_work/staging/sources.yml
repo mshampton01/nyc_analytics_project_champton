@@ -9,3 +9,13 @@ sources:
         description: |
           NYC 311 service requests for Dept of Transportation.
           One row per service request.
+
+  - name: raw
+    description: Raw data loaded from NYC Open Data
+    database: mshampton-cis-baruch
+    schema: nyc_homework_raw_data
+    tables:
+      - name: source_nyc_dob_job_apps
+        description: |
+          NYC DOB job applications filed.
+          One row per job.
