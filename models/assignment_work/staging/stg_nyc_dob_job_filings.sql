@@ -10,7 +10,6 @@ cleaned AS (
        -- Get all columns from source, except ones we're transforming below
        -- To do cleaning on them or explicitly cast them as types just in case
        * EXCEPT (
-            job,
             job_filing_number,
             filing_date,
             approved_date, 
@@ -23,8 +22,8 @@ cleaned AS (
             job_type, 
             job_description, 
             initial_cost, 
-            filing_status, 
-            house_no, 
+            filing_status,  
+            house_no,
             street_name, 
             borough, 
             applicant_street_name, 
