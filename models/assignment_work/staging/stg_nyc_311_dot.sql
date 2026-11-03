@@ -93,3 +93,4 @@ cleaned AS (
 
 SELECT * FROM cleaned
 -- All should be part of this table after running: stg_nyc_311_dot
+
