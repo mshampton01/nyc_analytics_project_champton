@@ -13,9 +13,11 @@ all_locations AS (
 
     SELECT DISTINCT 
            borough,
-           CAST (incident_zip AS STRING) AS zip
+           zip, 
+           council_district
     FROM stg_311
     WHERE borough IS NOT NULL
+       OR council_district IS NOT NULL
        OR zip IS NOT NULL
 
     UNION DISTINCT
@@ -25,6 +27,7 @@ all_locations AS (
          CAST (applicant_zip AS STRING) AS zip
     FROM stg_dob
     WHERE borough IS NOT NULL
+       OR council_district IS NOT NULL
        OR zip IS NOT NULL
 
 ),
@@ -33,10 +36,11 @@ location_dimension AS (
 
     SELECT
         {{ dbt_utils.generate_surrogate_key([
-            'borough', 'zip'
+            'borough', 'council_district', 'zip'
         ]) }} AS location_key,
 
         borough,
+        council_district,
         zip
 
     FROM all_locations
@@ -50,6 +54,7 @@ null_placeholder AS (
     SELECT
         '-1' AS location_key,
         CAST(NULL AS STRING) AS borough,
+        CAST(NULL AS STRING) AS council_district,
         CAST(NULL AS STRING) AS zip
 
 )
