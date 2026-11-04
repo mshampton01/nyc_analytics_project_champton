@@ -44,7 +44,7 @@ dim_filing_rep AS (
         state,
         zip
 
-    FROM stg_dob
+    FROM distinct_filing_reps
 
 ),
 
