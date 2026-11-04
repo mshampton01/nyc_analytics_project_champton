@@ -54,13 +54,13 @@ null_placeholder AS (
 
     SELECT 
     '-1' AS filing_representative_key,
-     CAST (NULL AS STRING) AS filing_representative_first_name   
-     CAST (NULL AS STRING) AS  filing_representative_last_name     
-     CAST (NULL AS STRING) AS filing_representative_business_name 
-     CAST (NULL AS STRING) AS  filing_representative_street_name   
-     CAST (NULL AS STRING) AS  filing_representative_city         
-     CAST (NULL AS STRING) AS filing_representative_state         
-     CAST (NULL AS STRING) AS filing_representative_zip           
+     CAST (NULL AS STRING) AS filing_representative_first_name, 
+     CAST (NULL AS STRING) AS  filing_representative_last_name,   
+     CAST (NULL AS STRING) AS filing_representative_business_name,
+     CAST (NULL AS STRING) AS  filing_representative_street_name,  
+     CAST (NULL AS STRING) AS  filing_representative_city,         
+     CAST (NULL AS STRING) AS filing_representative_state,         
+     CAST (NULL AS STRING) AS filing_representative_zip,           
 
 )
 
