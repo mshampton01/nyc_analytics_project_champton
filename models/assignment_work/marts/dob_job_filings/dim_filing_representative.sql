@@ -53,7 +53,7 @@ dim_filing_rep AS (
 null_placeholder AS (
 
     SELECT 
-        '-1'                  AS filing_representative_key,
+        '-1'  AS filing_representative_key,
         CAST(NULL AS STRING)  AS first_name,
         CAST(NULL AS STRING)  AS middle_initial,
         CAST(NULL AS STRING)  AS last_name,
@@ -63,13 +63,8 @@ null_placeholder AS (
         CAST(NULL AS STRING)  AS state,
         CAST(NULL AS STRING)  AS zip
 
-),
-
-final AS (
+)
 
     SELECT * FROM dim_filing_rep
-
     UNION ALL
-
     SELECT * FROM null_placeholder
-)
