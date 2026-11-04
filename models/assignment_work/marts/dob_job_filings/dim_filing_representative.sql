@@ -16,7 +16,7 @@ distinct_filing_reps AS (
         filing_representative_city          AS city,
         filing_representative_state         AS state,
         filing_representative_zip           AS zip
-    FROM stg_dob
+    FROM distinct_filing_reps
     WHERE filing_representative_first_name    IS NOT NULL
        OR filing_representative_last_name     IS NOT NULL
        OR filing_representative_business_name IS NOT NULL
