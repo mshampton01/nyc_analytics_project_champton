@@ -24,11 +24,11 @@ all_locations AS (
 
     SELECT DISTINCT
          borough,
-         CAST (applicant_zip AS STRING) AS zip
+         CAST(applicant_zip AS STRING) AS zip
     FROM stg_dob
     WHERE borough IS NOT NULL
        OR council_district IS NOT NULL
-       OR zip IS NOT NULL
+       OR applicant_zip IS NOT NULL
 
 ),
 
