@@ -16,7 +16,7 @@ distinct_filing_reps AS (
         filing_representative_city          AS city,
         filing_representative_state         AS state,
         filing_representative_zip           AS zip
-    FROM distinct_filing_reps
+    FROM stg_dob
     WHERE filing_representative_first_name    IS NOT NULL
        OR filing_representative_last_name     IS NOT NULL
        OR filing_representative_business_name IS NOT NULL
@@ -53,19 +53,27 @@ dim_filing_rep AS (
 null_placeholder AS (
 
     SELECT 
-    '-1' AS filing_representative_key,
-     CAST (NULL AS STRING) AS filing_representative_first_name, 
-     CAST (NULL AS STRING) AS  filing_representative_last_name,   
-     CAST (NULL AS STRING) AS filing_representative_business_name,
-     CAST (NULL AS STRING) AS  filing_representative_street_name,  
-     CAST (NULL AS STRING) AS  filing_representative_city,         
-     CAST (NULL AS STRING) AS filing_representative_state,         
-     CAST (NULL AS STRING) AS filing_representative_zip,           
+        '-1'                  AS filing_representative_key,
+        CAST(NULL AS STRING)  AS first_name,
+        CAST(NULL AS STRING)  AS middle_initial,
+        CAST(NULL AS STRING)  AS last_name,
+        CAST(NULL AS STRING)  AS business_name,
+        CAST(NULL AS STRING)  AS street_name,
+        CAST(NULL AS STRING)  AS city,
+        CAST(NULL AS STRING)  AS state,
+        CAST(NULL AS STRING)  AS zip
+
+),
+
+final AS (
+
+    SELECT * FROM dim_filing_rep
+
+    UNION ALL
+
+    SELECT * FROM null_placeholder
 
 )
 
-SELECT * FROM dim_filing_rep
 
-UNION ALL
-SELECT * FROM null_placeholder
 
