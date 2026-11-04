@@ -24,6 +24,7 @@ all_locations AS (
 
     SELECT DISTINCT
          borough,
+         council_district,
          CAST(applicant_zip AS STRING) AS zip
     FROM stg_dob
     WHERE borough IS NOT NULL
