@@ -72,8 +72,4 @@ final AS (
     UNION ALL
 
     SELECT * FROM null_placeholder
-
 )
-
-
-
