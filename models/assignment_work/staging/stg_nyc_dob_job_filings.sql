@@ -37,7 +37,7 @@ cleaned AS (
             longitude, 
             latitude,
             first_permit_date,
-            current_status_date,
+            current_status_date
             ),
 
        -- Identifiers
