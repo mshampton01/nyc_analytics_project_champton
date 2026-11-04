@@ -35,7 +35,9 @@ cleaned AS (
             filing_representative_state, 
             filing_representative_zip,
             longitude, 
-            latitude
+            latitude,
+            first_permit_date,
+            current_status_date,
             ),
 
        -- Identifiers
@@ -45,7 +47,7 @@ cleaned AS (
        CAST(filing_date AS TIMESTAMP) AS filing_date,
        CAST(approved_date AS TIMESTAMP) AS approved_date,
        CAST(signoff_date AS TIMESTAMP) AS signoff_date,
-       CAST(first_permit_date AS TIMESTAMP AS first_permit_date,
+       CAST(first_permit_date AS TIMESTAMP) AS first_permit_date,
        CAST(current_status_date) AS TIMESTAMP AS current_status_date,
 
        -- Job details
