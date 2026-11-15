@@ -43,11 +43,11 @@ cleaned AS (
 
        -- Location - standardized borough, just in case
        CASE
-           WHEN UPPER(TRIM(borough)) IN ('NY') THEN 'Manhattan'
-           WHEN UPPER(TRIM(borough)) IN ('BX') THEN 'Bronx'
-           WHEN UPPER(TRIM(borough)) IN ('B') THEN 'Brooklyn'
-           WHEN UPPER(TRIM(borough)) IN ('Q') THEN 'Queens'
-           WHEN UPPER(TRIM(borough)) IN ('SI') THEN 'Staten Island'
+           WHEN UPPER(TRIM(county)) IN ('NY') THEN 'Manhattan'
+           WHEN UPPER(TRIM(county)) IN ('BX') THEN 'Bronx'
+           WHEN UPPER(TRIM(county)) IN ('B') THEN 'Brooklyn'
+           WHEN UPPER(TRIM(county)) IN ('Q') THEN 'Queens'
+           WHEN UPPER(TRIM(county)) IN ('SI') THEN 'Staten Island'
        END AS borough,
 
    FROM source
