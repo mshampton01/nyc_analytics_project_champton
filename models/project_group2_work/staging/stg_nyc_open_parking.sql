@@ -16,7 +16,7 @@ cleaned AS (
            state,
            license_type,
            violation,
-           violation_status
+           violation_status,
            county,
            precinct,
            issuing_agency,
