@@ -21,21 +21,21 @@ models:
  nyc_analytics:
    +materialized: table
 
-   project_group2_work:
+   assignment_work:
      staging:
        +materialized: table
-       +schema: nyc_parking_staging
+       +schema: nyc_homework_staging
 
      marts:
        +materialized: table
-       +schema: nyc_parking_data_warehouse
+       +schema: nyc_homework_warehouse_marts
       
        conformed:
          +materialized: table
 
-       open_parking:
+       dob_job_filings:
          +materialized: table
 
-       311_illegal_parking:
+       dot_311:
          +materialized: table
 
