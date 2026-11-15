@@ -37,7 +37,6 @@ cleaned AS (
        -- Request details
        CAST(issuing_agency AS STRING) AS agency_name,
        CAST(violation AS STRING) AS violation,
-       CAST(county AS STRING) AS borough,
        UPPER(TRIM(CAST(violation_status AS STRING))) AS status,
 
 
@@ -48,7 +47,7 @@ cleaned AS (
            WHEN UPPER(TRIM(county)) IN ('B') THEN 'Brooklyn'
            WHEN UPPER(TRIM(county)) IN ('Q') THEN 'Queens'
            WHEN UPPER(TRIM(county)) IN ('SI') THEN 'Staten Island'
-       END AS borough,
+       END AS borough
 
    FROM source
 
@@ -57,7 +56,6 @@ cleaned AS (
    AND summons_number IS NOT NULL
    AND issue_date IS NOT NULL
    AND CAST(issue_date AS DATE) >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 YEAR)
-   AND borough IS NOT NULL
 
    -- Deduplicate
    QUALIFY ROW_NUMBER() OVER (PARTITION BY summons_number ORDER BY isssue_date DESC) = 1
