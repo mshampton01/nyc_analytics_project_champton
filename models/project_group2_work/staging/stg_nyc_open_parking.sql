@@ -39,7 +39,6 @@ cleaned AS (
        CAST(violation AS STRING) AS violation,
        UPPER(TRIM(CAST(violation_status AS STRING))) AS status,
 
-
        -- Location - standardized borough, just in case
        CASE
            WHEN UPPER(TRIM(county)) IN ('NY') THEN 'Manhattan'
@@ -57,8 +56,9 @@ cleaned AS (
    AND issue_date IS NOT NULL
    AND CAST(issue_date AS DATE) >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 YEAR)
 
-   -- Deduplicate
-   QUALIFY ROW_NUMBER() OVER (PARTITION BY summons_number ORDER BY isssue_date DESC) = 1
+
+   -- Deduplicate (Fixed typo: isssue_date -> issue_date)
+   QUALIFY ROW_NUMBER() OVER (PARTITION BY summons_number ORDER BY issue_date DESC) = 1
 )
 
 SELECT * FROM cleaned
