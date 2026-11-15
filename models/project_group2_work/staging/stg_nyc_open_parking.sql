@@ -25,7 +25,7 @@ cleaned AS (
            amount_due,
            interest_amount,
            payment_amount,
-           reduction_due
+           reduction_amount
        ),
 
        -- Identifiers
