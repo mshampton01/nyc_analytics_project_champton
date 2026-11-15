@@ -1,8 +1,8 @@
  -- Quick test to verify source connection works
  SELECT
-     unique_key,
-     created_date,
-     complaint_type,
-     borough
+     summons_number,
+     issue_date,
+     violation,
+     county
  FROM {{ source('raw', 'source_open_parking_data') }}
  LIMIT 10
