@@ -15,7 +15,7 @@ cleaned AS (
            violation,
            violation_status,
            county,
-           issuing_agency,
+           issuing_agency
        ),
 
        -- Identifiers
