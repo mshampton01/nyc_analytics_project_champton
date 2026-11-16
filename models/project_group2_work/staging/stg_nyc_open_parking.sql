@@ -16,8 +16,7 @@ cleaned AS (
            county,
            issuing_agency,
            violation_time,
-           violation_status,
-           judgement_entry_date
+           violation_status
        ),
 
        -- Identifiers
