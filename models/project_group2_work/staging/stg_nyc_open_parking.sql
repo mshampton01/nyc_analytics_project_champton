@@ -12,20 +12,10 @@ cleaned AS (
        * EXCEPT (
            summons_number,
            issue_date,
-           plate,
-           state,
-           license_type,
            violation,
            violation_status,
            county,
-           precinct,
            issuing_agency,
-           fine_amount,
-           penalty_amount,
-           amount_due,
-           interest_amount,
-           payment_amount,
-           reduction_amount
        ),
 
        -- Identifiers
