@@ -13,9 +13,11 @@ cleaned AS (
            summons_number,
            issue_date,
            violation,
-           violation_status,
            county,
-           issuing_agency
+           issuing_agency,
+           violation_time,
+           violation_status,
+           judgement_entry_date
        ),
 
        -- Identifiers
