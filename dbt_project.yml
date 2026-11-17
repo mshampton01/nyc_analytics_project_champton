@@ -36,5 +36,6 @@ models:
        open_parking:
          +materialized: table
 
-       311_illegal_parking:
-         +materialized: table
+        311_illegal_parking:
+          +materialized: table
+
