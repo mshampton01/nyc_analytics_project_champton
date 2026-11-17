@@ -30,7 +30,7 @@ enriched AS (
 
         -- Derived flag identifying 311 service request for Illegal Parking
         CASE
-            WHERE complaint_type = "Illegal Parking" THEN TRUE 
+            WHEN complaint_type = "Illegal Parking" THEN TRUE 
             ELSE FALSE 
             END AS is_illegal_parking
 
