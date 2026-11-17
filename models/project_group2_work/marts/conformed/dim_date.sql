@@ -6,7 +6,7 @@ WITH stg_open_parking AS (
 ),
 
 stg_311_illegal_parking AS (
-    SELECT * FROM {{ ref('stg_311_illegal_parking') }}
+    SELECT * FROM {{ ref('stg_nyc_311_illegal_parking') }}
 ),
 
 -- Then union dates from the staging data together, collecting all poss dates
