@@ -15,7 +15,32 @@ distinct_violation AS (
 
 ),
     
+enriched AS (
+    SELECT
+        violation_type,
+        status,
 
+        -- Derived high-level category based on NYC Open Parking violation descriptions
+        CASE
+            WHEN violation_type LIKE '%BUS LANE%' THEN 'Bus Lane'
+              OR violation_type LIKE '%CAMERA%' THEN 'Camera'
+              OR violation_type LIKE '%SPEED%' THEN 'Speeding'
+              OR violation_type LIKE '%RED LIGHT%' THEN 'Camera / Automated Enforcement'
+            WHEN violation_type LIKE '%PERMIT%' THEN 'Permit'
+              OR violation_type LIKE '%DSBLTY%' THEN 'Permit & Accessibility'
+            WHEN violation_type LIKE '%NO STAND%' THEN 'No Standing'
+              OR violation_type LIKE '%NO STOPPING%' THEN 'No Stopping'
+              OR violation_type LIKE '%PCKP DSCHRGE%' THEN 'No Standing / No Stopping'
+            WHEN violation_type LIKE '%NO PARKING%' THEN 'No Parking'
+            WHEN violation_type LIKE '%HYDRANT%' THEN 'Fire Hydrant'
+            WHEN violation_type LIKE '%METER%' THEN 'Meter Violation'
+            WHEN violation_type LIKE '%DOUBLE%' THEN 'Double Parking'
+            ELSE 'Other Violation'
+        END AS violation_category
+    FROM distinct_violation
+),
+
+)
 dim_violation AS (
 
     SELECT
@@ -24,6 +49,7 @@ dim_violation AS (
         ]) }} AS violation_key,
 
        violation_type,
+       violation_category
        status
 
     FROM distinct_violation
