@@ -52,7 +52,7 @@ dim_violation AS (
        violation_category
        status
 
-    FROM distinct_violation
+    FROM enriched
 
 )
 
