@@ -30,11 +30,11 @@ models:
        +materialized: table
        +schema: nyc_parking_data_warehouse
       
-       conformed:
-         +materialized: table
-      
        311_illegal_parking:
           +materialized: table
+       
+       conformed:
+         +materialized: table
 
        open_parking:
          +materialized: table
