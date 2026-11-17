@@ -32,10 +32,11 @@ models:
       
        conformed:
          +materialized: table
+      
+       311_illegal_parking:
+          +materialized: table
 
        open_parking:
          +materialized: table
 
-        '311_illegal_parking':
-          +materialized: table
 
