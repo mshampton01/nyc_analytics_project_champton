@@ -1,4 +1,4 @@
--- Volation dimension for 311 illegal parking
+-- Volation dimension for open parking and camera violation
 -- Grain: one row per violation
 
 WITH stg_open_parking AS (

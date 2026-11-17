@@ -62,7 +62,7 @@ cleaned AS (
            WHEN UPPER(TRIM(borough)) IN ('BROOKLYN', 'KINGS COUNTY') THEN 'Brooklyn'
            WHEN UPPER(TRIM(borough)) IN ('QUEENS', 'QUEEN', 'QUEENS COUNTY') THEN 'Queens'
            WHEN UPPER(TRIM(borough)) IN ('STATEN ISLAND', 'RICHMOND COUNTY') THEN 'Staten Island'
-           ELSE 'UNKNOWN or CITYWIDE'
+           ELSE 'Unknown'
        END AS borough,
 
        CAST(incident_address AS STRING) AS incident_address,
