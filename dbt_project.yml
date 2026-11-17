@@ -30,7 +30,7 @@ models:
         +materialized: table
         +schema: nyc_parking_data_warehouse
 
-        '311_illegal_parking':
+        nyc_311_illegal_parking:
           +materialized: table
 
         conformed:
