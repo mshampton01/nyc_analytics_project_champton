@@ -1,20 +1,19 @@
--- Volation dimension for open parking and camera violation
--- Grain: one row per violation
+-- Violation dimension for open parking and camera violations
+-- Grain: one row per unique combination of violation_type and status
 
 WITH stg_open_parking AS (
     SELECT * FROM {{ ref('stg_nyc_open_parking') }}
 ),
 
 distinct_violation AS (
-
     SELECT DISTINCT
-        TRIM(violation) AS violation_type,
-        status,
+        UPPER(TRIM(violation)) AS violation_type,
+        COALESCE(NULLIF(TRIM(status), ''), 'Unknown') AS status
     FROM stg_open_parking
     WHERE violation IS NOT NULL
-
+      AND TRIM(violation) != ''
 ),
-    
+
 enriched AS (
     SELECT
         violation_type,
@@ -40,17 +39,15 @@ enriched AS (
     FROM distinct_violation
 ),
 
-)
 dim_violation AS (
-
     SELECT
         {{ dbt_utils.generate_surrogate_key([
-            'violation_type', 'status'
+            'violation_type',
+            'status'
         ]) }} AS violation_key,
-
-       violation_type,
-       violation_category
-       status
+        violation_type,
+        violation_category,
+        status
     FROM enriched
 )
 
