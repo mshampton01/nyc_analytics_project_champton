@@ -13,30 +13,30 @@ snapshot-paths: ["snapshots"]
 
 target-path: "target"
 clean-targets:
- - "target"
- - "dbt_packages"
+  - "target"
+  - "dbt_packages"
 
 # Set up models, which are basically SQL files, to create tables
 models:
- nyc_analytics:
-   +materialized: table
+  nyc_analytics:
+    +materialized: table
 
-   project_group2_work:
-     staging:
-       +materialized: table
-       +schema: nyc_parking_staging
+    project_group2_work:
+      staging:
+        +materialized: table
+        +schema: nyc_parking_staging
 
-     marts:
-       +materialized: table
-       +schema: nyc_parking_data_warehouse
-      
-       311_illegal_parking:
+      marts:
+        +materialized: table
+        +schema: nyc_parking_data_warehouse
+
+        '311_illegal_parking':
           +materialized: table
-       
-       conformed:
-         +materialized: table
 
-       open_parking:
-         +materialized: table
+        conformed:
+          +materialized: table
+
+        open_parking:
+          +materialized: table
 
 
