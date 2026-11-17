@@ -51,9 +51,7 @@ dim_violation AS (
        violation_type,
        violation_category
        status
-
     FROM enriched
-
 )
 
 SELECT * FROM dim_violation
