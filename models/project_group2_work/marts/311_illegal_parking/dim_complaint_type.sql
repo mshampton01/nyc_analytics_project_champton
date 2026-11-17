@@ -11,7 +11,7 @@ distinct_complaint_type AS (
         complaint_type,
         descriptor,
         status
-    FROM stg_illegl_parking
+    FROM stg_illegal_parking
     WHERE complaint_type IS NOT NULL
     AND descriptor IS NOT NULL
 
