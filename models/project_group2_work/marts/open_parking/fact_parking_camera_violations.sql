@@ -37,10 +37,10 @@ fact_base AS (
 
     FROM stg_open_parking s
 
-    LEFT JOIN {{ ref('dim_date1') }} d
+    LEFT JOIN {{ ref('dim_date') }} d
         ON DATE(s.issue_date) = d.full_date
 
-    LEFT JOIN {{ ref('dim_location1') }} l
+    LEFT JOIN {{ ref('dim_location') }} l
         ON CAST(s.borough AS STRING) = l.borough
         AND l.zip_code IS NULL
         AND CAST(s.precinct AS STRING) = l.precinct
