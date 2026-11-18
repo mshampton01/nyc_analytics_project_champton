@@ -1,6 +1,6 @@
 WITH stg_311 AS (
     SELECT *
-    FROM {{ ref('stg_311_illegal_parking') }}
+    FROM {{ ref('stg_nyc_311_illegal_parking') }}
 ),
 
 fact_base AS (
