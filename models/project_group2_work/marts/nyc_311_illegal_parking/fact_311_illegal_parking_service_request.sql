@@ -31,18 +31,18 @@ fact_base AS (
     LEFT JOIN {{ ref('dim_nyc_agency') }} a
         ON CAST(s.agency_name AS STRING) = a.agency_name
 
-    LEFT JOIN {{ ref('dim_date1') }} cd
+    LEFT JOIN {{ ref('dim_date') }} cd
         ON DATE(s.created_date) = cd.full_date
 
-    LEFT JOIN {{ ref('dim_date1') }} xd
+    LEFT JOIN {{ ref('dim_date') }} xd
         ON DATE(s.closed_date) = xd.full_date
 
-    LEFT JOIN {{ ref('dim_location1') }} l
+    LEFT JOIN {{ ref('dim_location') }} l
         ON CAST(s.borough AS STRING) = l.borough
         AND COALESCE(CAST(s.zip AS STRING), '') =
             COALESCE(l.zip_code, '')
 
-    LEFT JOIN {{ ref('dim_complaint_type1') }} c
+    LEFT JOIN {{ ref('dim_complaint_type') }} c
         ON CAST(s.complaint_type AS STRING) = c.complaint_type
         AND COALESCE(CAST(s.descriptor AS STRING), '') =
             COALESCE(c.descriptor, '')
